@@ -1,5 +1,14 @@
 #pragma once
-struct userInterface
+#include "queueItem.h"
+enum UserInterface
 {
+	MinNumbOfItems = 1,
+	MaxNumbOfItems = 3,
+	ASCIImin = 65,
+	ASCIImax = 90
 };
+void workWithUser(QueueItem*& pFirst, QueueItem*& pLast);
 
+int randomCount(int minNumber, int maxNumber);
+
+char randomSymbol();
