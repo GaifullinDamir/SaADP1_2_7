@@ -88,3 +88,15 @@ void printQueue(QueueItem*& pFirst, QueueItem*& pLast)
 		std::cout << std::endl;
 	}
 }
+
+void clearMemory(QueueItem*& pFirst, QueueItem*& pLast)
+{
+	QueueItem* current = NULL;
+	current = pFirst;
+	while (current->pNext != NULL)
+	{
+		deleteItem(current, pLast);
+	}
+	current = NULL;
+	pFirst = NULL; pLast = NULL;
+}

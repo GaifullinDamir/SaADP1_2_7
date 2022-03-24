@@ -9,4 +9,5 @@ int main()
     QueueItem* pLast = new QueueItem;
     init(pFirst, pLast);
     work(pFirst, pLast);
+    clearMemory(pFirst, pLast);
 }
