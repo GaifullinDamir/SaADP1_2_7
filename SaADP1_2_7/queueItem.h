@@ -13,8 +13,8 @@ void addItem(QueueItem*& pFirst, QueueItem*& pLast, char data);
 
 void addNumbOfItems(QueueItem*& pFirst, QueueItem*& pLast, int numbOfItems);
 
-void deleteItem(QueueItem*& pFirst, QueueItem*& pLast);
+bool deleteItem(QueueItem*& pFirst, QueueItem*& pLast);
 
-void deleteNumbOfItems(QueueItem*& pFirst, QueueItem*& pLast, int numbOfItems);
+int deleteNumbOfItems(QueueItem*& pFirst, QueueItem*& pLast, int numbOfItems);
 
 void printQueue(QueueItem*& pFirst, QueueItem*& pLast);

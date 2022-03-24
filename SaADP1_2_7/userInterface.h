@@ -7,7 +7,7 @@ enum UserInterface
 	ASCIImin = 65,
 	ASCIImax = 90
 };
-void workWithUser(QueueItem*& pFirst, QueueItem*& pLast);
+void work(QueueItem*& pFirst, QueueItem*& pLast);
 
 int randomCount(int minNumber, int maxNumber);
 

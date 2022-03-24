@@ -8,5 +8,5 @@ int main()
     QueueItem* pFirst = new QueueItem;
     QueueItem* pLast = new QueueItem;
     init(pFirst, pLast);
-    workWithUser(pFirst, pLast);
+    work(pFirst, pLast);
 }

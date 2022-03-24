@@ -1,10 +1,11 @@
 #include <iostream>
 #include <windows.h> 
 #include <conio.h>
+#include <ctime>
 #include "userInterface.h"
 #include "queueItem.h"
 
-void workWithUser(QueueItem*& pFirst, QueueItem*& pLast)
+void work(QueueItem*& pFirst, QueueItem*& pLast)
 {
 	char key = 'g';
 	while (key != 'q')
@@ -16,8 +17,8 @@ void workWithUser(QueueItem*& pFirst, QueueItem*& pLast)
 			if (!isEmpty(pFirst, pLast))
 			{
 				int numbOfItems = randomCount(MinNumbOfItems, MaxNumbOfItems);
-				deleteNumbOfItems(pFirst, pLast, numbOfItems);
-				std::cout << "   Quantity of deleted items: " << numbOfItems << std::endl;
+				int numbOfDelItems = deleteNumbOfItems(pFirst, pLast, numbOfItems);
+				std::cout << "   Quantity of deleted items: " << numbOfDelItems << std::endl;
 			}
 			else
 				std::cout << "   The queue is empty. Nothing to delete." << std::endl;
@@ -29,10 +30,10 @@ void workWithUser(QueueItem*& pFirst, QueueItem*& pLast)
 			addNumbOfItems(pFirst, pLast, numbOfItems);
 			std::cout << "   Quantity of added items: " << numbOfItems << std::endl;
 		}
-		std::cout << "   The current state of the queue: " << std::endl;
-		printQueue(pFirst, pLast);
-		Sleep(2000);
 
+		printQueue(pFirst, pLast); 
+		Sleep(2000);
+		std::cout << std::endl;
 		std::cout << "   q + ENTER = exit. " << std::endl;
 
 		if (_kbhit()) { key = _getch(); }
@@ -41,7 +42,6 @@ void workWithUser(QueueItem*& pFirst, QueueItem*& pLast)
 
 int randomCount(int minNumber, int maxNumber)
 {
-	srand(time(NULL));
 	return minNumber + rand() % (maxNumber - minNumber + 1);
 }
 

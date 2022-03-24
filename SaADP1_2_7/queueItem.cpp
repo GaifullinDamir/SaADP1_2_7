@@ -36,7 +36,7 @@ void addNumbOfItems(QueueItem*& pFirst, QueueItem*& pLast, int numbOfItems)
 	}
 }
 
-void deleteItem(QueueItem*& pFirst, QueueItem*& pLast)
+bool deleteItem(QueueItem*& pFirst, QueueItem*& pLast)
 {
 	QueueItem* temporary;
 	if (!isEmpty(pFirst, pLast))
@@ -45,20 +45,28 @@ void deleteItem(QueueItem*& pFirst, QueueItem*& pLast)
 		pFirst->pNext = temporary->pNext;
 		delete temporary;
 		if (pFirst->pNext == NULL) { pLast = pFirst; }
+		return true;
 	}
 	else
 	{
-		std::cout << std::endl;
-		std::cout << "   The queue is empty. Nothing to delete." << std::endl;
-		std::cout << std::endl;
+		return false;
 	}
 }
 
-void deleteNumbOfItems(QueueItem*& pFirst, QueueItem*& pLast, int numbOfItems)
+int deleteNumbOfItems(QueueItem*& pFirst, QueueItem*& pLast, int numbOfItems)
 {
+	bool check = true;
+	int numbOfDelItems = 0;
 	for (int i = 0; i < numbOfItems; i++)
 	{
-		deleteItem(pFirst, pLast);
+		check = deleteItem(pFirst, pLast);
+		if (check == false)
+		{
+			std::cout << "   The queue is empty. Nothing to delete." << std::endl;
+			return numbOfDelItems;
+			break;
+		}
+		numbOfDelItems++;
 	}
 }
 
@@ -66,9 +74,7 @@ void printQueue(QueueItem*& pFirst, QueueItem*& pLast)
 {
 	if (isEmpty(pFirst, pLast))
 	{
-		std::cout << std::endl;
-		std::cout << "   The queue is empty. Nothing to print." << std::endl;
-		std::cout << std::endl;
+		std::cout << "   Nothing to print." << std::endl;
 	}
 	else
 	{
@@ -76,7 +82,7 @@ void printQueue(QueueItem*& pFirst, QueueItem*& pLast)
 		QueueItem* current = pFirst->pNext;
 		while (current != NULL)
 		{
-			std::cout << "   " << current->data << std::endl;
+		std::cout << "   " << current->data << std::endl;
 			current = current->pNext;
 		}
 		std::cout << std::endl;
