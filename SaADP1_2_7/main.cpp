@@ -4,7 +4,6 @@
 
 int main()
 {
-    int numberOfItems = 0;
     QueueItem* pFirst = new QueueItem;
     QueueItem* pLast = new QueueItem;
     init(pFirst, pLast);

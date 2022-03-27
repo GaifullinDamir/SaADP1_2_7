@@ -10,8 +10,7 @@ void init(QueueItem*& pFirst, QueueItem*& pLast)
 
 bool isEmpty(QueueItem* pFirst, QueueItem* pLast)
 {
-	if (pFirst == pLast) { return true; }
-	else { return false; }
+	return(pFirst == pLast);
 }
 
 void addItem(QueueItem*& pFirst, QueueItem*& pLast, char data)
@@ -60,11 +59,10 @@ int deleteNumbOfItems(QueueItem*& pFirst, QueueItem*& pLast, int numbOfItems)
 	for (int i = 0; i < numbOfItems; i++)
 	{
 		check = deleteItem(pFirst, pLast);
-		if (check == false)
+		if (!check)
 		{
 			std::cout << "   The queue is empty. Nothing to delete." << std::endl;
 			return numbOfDelItems;
-			break;
 		}
 		numbOfDelItems++;
 	}
@@ -82,7 +80,7 @@ void printQueue(QueueItem*& pFirst, QueueItem*& pLast)
 		QueueItem* current = pFirst->pNext;
 		while (current != NULL)
 		{
-		std::cout << "   " << current->data << std::endl;
+			std::cout << "   " << current->data << std::endl;
 			current = current->pNext;
 		}
 		std::cout << std::endl;

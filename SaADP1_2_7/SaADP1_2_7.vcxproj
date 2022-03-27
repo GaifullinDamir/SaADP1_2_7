@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="queueItem.cpp" />
-    <ClCompile Include="SaADP1_2_7.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="userInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
